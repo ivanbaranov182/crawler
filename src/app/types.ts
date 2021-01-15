@@ -3,8 +3,8 @@ export type Article = {
   slug: string;
   categories: Category[];
   image: string;
-  create_at: string;
-  update_at: string;
+  published_at: string;
+  edited_at: string;
   title: string;
   description: string;
   text_html: string;
@@ -20,5 +20,5 @@ export type ArticleStatistic = {
   domain: string;
   slug: string;
   time: number;
-  read: boolean;
+  read: number;
 };

@@ -10,7 +10,7 @@ export class Crawler {
   private readonly article: Article;
   private readonly articleEl: HTMLElement | null;
   private readonly userId: string;
-  private read: boolean;
+  private read: number;
   private readonly articleStartEl: HTMLElement | undefined;
   private readonly articleEndEl: HTMLElement | undefined;
   private startReadTime: number;
@@ -22,7 +22,7 @@ export class Crawler {
     this.articleEl = this.parser.articleElement;
     this.userId = User.getId();
     this.sender = new Sender();
-    this.read = false;
+    this.read = 0;
     this.articleStartEl = addElement(this.articleEl, 'js-observer-start', true);
     this.articleEndEl = addElement(this.articleEl, 'js-observer-end');
     this.startReadTime = new Date().getTime();
@@ -44,7 +44,7 @@ export class Crawler {
   }
 
   articleRead(): void {
-    this.read = true;
+    this.read = 1;
     this.sender.send(this.statistic, '/article-statistics', true);
   }
 
