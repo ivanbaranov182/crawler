@@ -50,6 +50,6 @@ export class PropParser extends Parser {
     if (!el) return '';
     const article = el.cloneNode(true);
     const normalizedArticle = this.removeHtml(article);
-    return normalizedArticle.textContent ?? '';
+    return normalizedArticle.textContent ? normalizedArticle.textContent.trim() : '';
   }
 }
