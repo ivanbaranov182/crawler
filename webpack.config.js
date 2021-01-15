@@ -8,14 +8,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/main.ts',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle-[hash].js',
+    path: path.resolve(__dirname, 'build'),
+    // filename: 'bundle-[hash].js',
+    filename: 'bundle.js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: 'build',
     compress: true,
     port: 3000,
   },

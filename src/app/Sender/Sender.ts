@@ -3,8 +3,6 @@ import { objectToFormData } from '../utils';
 
 const { API_URL = 'http://localhost/api/v1' } = process.env;
 
-console.log('API_URL', API_URL);
-
 export class Sender {
   private readonly canBeacon: boolean;
   constructor() {
