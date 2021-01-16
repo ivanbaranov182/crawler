@@ -22,12 +22,6 @@ export class PropParser extends Parser {
     return param ? this.getElementAttributeValue(el, param) : this.getElementTextValue(el);
   }
 
-  getElementsParam(query: string, param: string | null): string[] {
-    const elements = this.element && this.getElement(query, this.element);
-    if (!elements) return [];
-    return [];
-  }
-
   getElement(query: string, rootElement?: HTMLElement): HTMLElement | null {
     const root = rootElement || this.rootElement;
     return root.querySelector(query);
@@ -56,7 +50,7 @@ export class PropParser extends Parser {
   }
 
   get categories(): Category[] {
-    return this.getElementsParam('[itemprop="section"]', 'content');
+    return [];
   }
 
   get createAt(): string {
