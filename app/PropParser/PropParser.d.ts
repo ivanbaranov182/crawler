@@ -6,7 +6,6 @@ export declare class PropParser extends Parser {
     constructor();
     get element(): HTMLElement | null;
     getElementParam(query: string, param: string | null): string;
-    getElementsParam(query: string, param: string | null): string[];
     getElement(query: string, rootElement?: HTMLElement): HTMLElement | null;
     getElementAttributeValue(el: HTMLElement, param: string): string;
     getElementTextValue(el: HTMLElement): string;
