@@ -16,10 +16,6 @@ export declare class Parser {
     get description(): string;
     get textHtml(): string;
     get content_images(): ContentImage[];
-    getElement(query: string, rootElement?: HTMLElement): HTMLElement | null;
-    getElementAttributeValue(el: HTMLElement, param: string): string;
-    getElementTextValue(el: HTMLElement): string;
-    removeHtml(el: Node): Node;
     get articleElement(): HTMLElement | null;
     get result(): Article;
 }
