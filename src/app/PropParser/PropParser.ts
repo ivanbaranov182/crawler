@@ -4,7 +4,7 @@ import { Category, ContentImage } from '../types';
 
 export class PropParser extends Parser {
   private readonly articleQuery: string;
-  private articleBodyEl: HTMLElement | null;
+  private readonly articleBodyEl: HTMLElement | null;
 
   constructor() {
     super();

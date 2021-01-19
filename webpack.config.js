@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/main.ts',
+  devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'build'),
     // filename: 'bundle-[hash].js',
