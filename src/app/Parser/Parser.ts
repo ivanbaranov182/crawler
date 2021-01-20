@@ -10,7 +10,7 @@ export class Parser {
   }
 
   get url(): string {
-    return '';
+    return window.location.href;
   }
 
   get urlObj(): URL {

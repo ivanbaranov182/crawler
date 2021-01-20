@@ -17,7 +17,7 @@ export class Crawler {
   private readonly sender: Sender;
 
   constructor() {
-    this.parser = new PropParser();
+    this.parser = this.getParser();
     this.article = this.parser.result;
     this.articleEl = this.parser.articleElement;
     this.userId = User.getId();
@@ -37,6 +37,12 @@ export class Crawler {
       time: msToSec(new Date().getTime() - this.startReadTime),
       read: this.read,
     };
+  }
+
+  getParser(): Parser {
+    const canPropParser = document.querySelector('[itemtype="http://schema.org/NewsArticle"]');
+    if (!canPropParser) console.log('Микроразметка не найдена');
+    return canPropParser ? new PropParser() : new Parser();
   }
 
   sendArticleInfo(): void {
