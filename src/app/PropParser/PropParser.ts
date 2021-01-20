@@ -35,14 +35,17 @@ export class PropParser extends Parser {
     return el.textContent ?? '';
   }
 
-  removeHtml(el: Node): Node {
+  removeHtml(el: HTMLElement): HTMLElement {
+    const div = document.createElement('div');
+    div.innerHTML = el.innerHTML;
     this.removedTags.forEach((tag) => {
-      el.childNodes.forEach((node) => {
-        const nodeName = node.nodeName.toLowerCase();
-        return nodeName === tag && el.removeChild(node);
-      });
+      const tagsElements = div.getElementsByTagName(tag);
+      let i = tagsElements.length;
+      while (i--) {
+        tagsElements[i].parentNode?.removeChild(tagsElements[i]);
+      }
     });
-    return el;
+    return div;
   }
 
   get url(): string {
@@ -77,9 +80,8 @@ export class PropParser extends Parser {
 
   get textHtml(): string {
     if (!this.articleBodyEl) return '';
-    const article = this.articleBodyEl.cloneNode(true);
-    const normalizedArticle = this.removeHtml(article);
-    return normalizedArticle.textContent ? normalizedArticle.textContent.trim() : '';
+    const normalizedArticle = this.removeHtml(this.articleBodyEl);
+    return normalizedArticle ? normalizedArticle.innerHTML.toString().trim() : '';
   }
 
   get content_images(): ContentImage[] {

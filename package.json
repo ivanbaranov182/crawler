@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "",
   "scripts": {
-    "start": "webpack-dev-server --mode=development",
+    "start": "webpack-dev-server --mode=development --config webpack.config.development.js",
     "build": "webpack",
     "build:prod": "webpack --config webpack.config.prod.js",
     "predeploy": "npm run build",
