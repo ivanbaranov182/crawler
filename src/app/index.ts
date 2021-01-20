@@ -1,6 +1,4 @@
 import { Crawler } from './Crawler';
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded');
-  new Crawler();
-});
+console.log('without DOMContentLoaded');
+new Crawler();

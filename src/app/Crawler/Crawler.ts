@@ -26,7 +26,7 @@ export class Crawler {
     this.articleStartEl = addElement(this.articleEl, 'js-observer-start', true);
     this.articleEndEl = addElement(this.articleEl, 'js-observer-end');
     this.startReadTime = new Date().getTime();
-    this.initEvents();
+    if (this.articleEl) this.initEvents();
   }
 
   get statistic(): ArticleStatistic {
