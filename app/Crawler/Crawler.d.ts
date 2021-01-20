@@ -1,3 +1,4 @@
+import { Parser } from '../Parser';
 import { ArticleStatistic } from '../types';
 export declare class Crawler {
     private readonly parser;
@@ -11,6 +12,7 @@ export declare class Crawler {
     private readonly sender;
     constructor();
     get statistic(): ArticleStatistic;
+    getParser(): Parser;
     sendArticleInfo(): void;
     articleRead(): void;
     articleReject(): void;

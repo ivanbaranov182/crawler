@@ -2,7 +2,7 @@ import { Parser } from '../Parser';
 import { Category, ContentImage } from '../types';
 export declare class PropParser extends Parser {
     private readonly articleQuery;
-    private articleBodyEl;
+    private readonly articleBodyEl;
     constructor();
     get element(): HTMLElement | null;
     getElementParam(query: string, param: string | null): string;
