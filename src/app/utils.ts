@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { parseISO, format } from 'date-fns';
 import { Article, ArticleStatistic } from './types';
 
 export const msToSec = (ms: number): number => Math.round(ms / 1000);
@@ -6,9 +7,7 @@ export const msToSec = (ms: number): number => Math.round(ms / 1000);
 export const generateUniqueString = (): string => uuidv4();
 
 export const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  const tmp = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-  return tmp.replace(/(^|\D)(\d)(?!\d)/g, '$10$2');
+  return format(parseISO(dateString), 'yyyy-MM-dd HH:mm:SS');
 };
 
 export const addElement = (parentEl: HTMLElement | null, className: string, start = false): HTMLElement | undefined => {
