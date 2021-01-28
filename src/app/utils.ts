@@ -7,7 +7,7 @@ export const generateUniqueString = (): string => uuidv4();
 
 export const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
-  const tmp = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  const tmp = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   return tmp.replace(/(^|\D)(\d)(?!\d)/g, '$10$2');
 };
 
