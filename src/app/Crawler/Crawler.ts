@@ -15,16 +15,18 @@ export class Crawler {
   private readonly articleEndEl: HTMLElement | undefined;
   private startReadTime: number;
   private readonly sender: Sender;
+  private readonly articleBodyEl: HTMLElement | null;
 
   constructor() {
     this.parser = this.getParser();
     this.article = this.parser.result;
     this.articleEl = this.parser.articleElement;
+    this.articleBodyEl = this.parser.articleBody;
     this.userId = User.getId();
     this.sender = new Sender();
     this.read = 0;
     this.articleStartEl = addElement(this.articleEl, 'js-observer-start', true);
-    this.articleEndEl = addElement(this.articleEl, 'js-observer-end');
+    this.articleEndEl = addElement(this.articleBodyEl, 'js-observer-end');
     this.startReadTime = new Date().getTime();
     if (this.articleEl) this.initEvents();
   }

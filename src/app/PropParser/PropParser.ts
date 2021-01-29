@@ -31,6 +31,10 @@ export class PropParser extends Parser {
     return root.querySelector(query);
   }
 
+  get articleBody(): HTMLElement | null {
+    return this.articleBodyEl;
+  }
+
   getElementAttributeValue(el: HTMLElement, param: string): string {
     return el.getAttribute(param) ?? '';
   }

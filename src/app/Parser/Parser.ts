@@ -73,6 +73,10 @@ export class Parser {
     return this.element;
   }
 
+  get articleBody(): HTMLElement | null {
+    return null;
+  }
+
   get result(): Article {
     return {
       domain: this.domain,
