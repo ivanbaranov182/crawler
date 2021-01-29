@@ -19,5 +19,6 @@ export declare class Parser {
     get author_id(): string;
     get author_name(): string;
     get articleElement(): HTMLElement | null;
+    get articleBody(): HTMLElement | null;
     get result(): Article;
 }

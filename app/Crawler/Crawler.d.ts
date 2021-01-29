@@ -10,6 +10,7 @@ export declare class Crawler {
     private readonly articleEndEl;
     private startReadTime;
     private readonly sender;
+    private readonly articleBodyEl;
     constructor();
     get statistic(): ArticleStatistic;
     getParser(): Parser;

@@ -9,6 +9,7 @@ export declare class PropParser extends Parser {
     get element(): HTMLElement | null;
     getElementParam(query: string, param: string | null): string;
     getElement(query: string, rootElement?: HTMLElement): HTMLElement | null;
+    get articleBody(): HTMLElement | null;
     getElementAttributeValue(el: HTMLElement, param: string): string;
     getElementTextValue(el: HTMLElement): string;
     removeHtml(el: HTMLElement): HTMLElement;
