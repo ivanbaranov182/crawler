@@ -61,6 +61,14 @@ export class Parser {
     return [];
   }
 
+  get author_id(): number | null {
+    return null;
+  }
+
+  get author_name(): string {
+    return '';
+  }
+
   get articleElement(): HTMLElement | null {
     return this.element;
   }
@@ -71,12 +79,14 @@ export class Parser {
       slug: this.slug,
       categories: this.categories,
       image: this.image,
-      published_at: this.createAt,
-      edited_at: this.updateAt,
       title: this.title,
       description: this.description,
       text_html: this.textHtml,
       content_images: this.content_images,
+      author_id: this.author_id,
+      author_name: this.author_name,
+      published_at: this.createAt,
+      edited_at: this.updateAt,
     };
   }
 }

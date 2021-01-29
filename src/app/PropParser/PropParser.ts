@@ -5,11 +5,13 @@ import { Category, ContentImage } from '../types';
 export class PropParser extends Parser {
   private readonly articleQuery: string;
   private readonly articleBodyEl: HTMLElement | null;
+  private readonly articleAuthorEl: HTMLElement | null;
 
   constructor() {
     super();
     this.articleQuery = '[itemtype="http://schema.org/NewsArticle"]';
     this.articleBodyEl = this.element && this.getElement('[itemprop="articleBody"]', this.element);
+    this.articleAuthorEl = this.element && this.getElement('[itemprop="author"]', this.element);
   }
 
   get element(): HTMLElement | null {
@@ -92,5 +94,17 @@ export class PropParser extends Parser {
       images.push(this.getElementAttributeValue(image, 'src'));
     });
     return images;
+  }
+
+  get author_id(): number | null {
+    const authorNameEl = this.articleAuthorEl ? this.getElement('[itemprop="vatID"]', this.articleAuthorEl) : null;
+    if (!authorNameEl) return null;
+    return null;
+  }
+
+  get author_name(): string {
+    const authorNameEl = this.articleAuthorEl ? this.getElement('[itemprop="name"]', this.articleAuthorEl) : null;
+    if (!authorNameEl) return '';
+    return this.getElementTextValue(authorNameEl);
   }
 }

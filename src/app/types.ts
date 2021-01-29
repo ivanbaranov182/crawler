@@ -3,12 +3,14 @@ export type Article = {
   slug: string;
   categories: Category[];
   image: string;
-  published_at: string;
-  edited_at: string;
   title: string;
   description: string;
   text_html: string;
   content_images: ContentImage[];
+  author_id: number | null;
+  author_name: string;
+  published_at: string;
+  edited_at: string;
 };
 
 export type Category = string;
