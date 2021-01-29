@@ -16,6 +16,8 @@ export declare class Parser {
     get description(): string;
     get textHtml(): string;
     get content_images(): ContentImage[];
+    get author_id(): string;
+    get author_name(): string;
     get articleElement(): HTMLElement | null;
     get result(): Article;
 }

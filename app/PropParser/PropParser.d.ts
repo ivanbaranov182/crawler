@@ -3,6 +3,8 @@ import { Category, ContentImage } from '../types';
 export declare class PropParser extends Parser {
     private readonly articleQuery;
     private readonly articleBodyEl;
+    private readonly articleAuthorEl;
+    private readonly articleSectionEl;
     constructor();
     get element(): HTMLElement | null;
     getElementParam(query: string, param: string | null): string;
@@ -19,4 +21,6 @@ export declare class PropParser extends Parser {
     get description(): string;
     get textHtml(): string;
     get content_images(): ContentImage[];
+    get author_id(): string;
+    get author_name(): string;
 }

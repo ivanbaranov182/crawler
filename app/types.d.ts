@@ -3,12 +3,14 @@ export declare type Article = {
     slug: string;
     categories: Category[];
     image: string;
-    published_at: string;
-    edited_at: string;
     title: string;
     description: string;
     text_html: string;
     content_images: ContentImage[];
+    author_id: string;
+    author_name: string;
+    published_at: string;
+    edited_at: string;
 };
 export declare type Category = string;
 export declare type ContentImage = string;
