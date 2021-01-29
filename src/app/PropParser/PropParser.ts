@@ -6,11 +6,13 @@ export class PropParser extends Parser {
   private readonly articleQuery: string;
   private readonly articleBodyEl: HTMLElement | null;
   private readonly articleAuthorEl: HTMLElement | null;
+  private readonly articleSectionEl: HTMLElement | null;
 
   constructor() {
     super();
     this.articleQuery = '[itemtype="http://schema.org/NewsArticle"]';
     this.articleBodyEl = this.element && this.getElement('[itemprop="articleBody"]', this.element);
+    this.articleSectionEl = this.element && this.getElement('[itemprop="articleSection"]', this.element);
     this.articleAuthorEl = this.element && this.getElement('[itemprop="author"]', this.element);
   }
 
@@ -55,7 +57,8 @@ export class PropParser extends Parser {
   }
 
   get categories(): Category[] {
-    return [];
+    if (!this.articleSectionEl) return [];
+    return this.articleSectionEl.textContent ? this.articleSectionEl.textContent.split(',') : [];
   }
 
   get createAt(): string {
@@ -97,8 +100,8 @@ export class PropParser extends Parser {
   }
 
   get author_id(): number | null {
-    const authorNameEl = this.articleAuthorEl ? this.getElement('[itemprop="vatID"]', this.articleAuthorEl) : null;
-    if (!authorNameEl) return null;
+    const authorIdEl = this.articleAuthorEl ? this.getElement('[itemprop="vatID"]', this.articleAuthorEl) : null;
+    if (!authorIdEl) return null;
     return null;
   }
 

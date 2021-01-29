@@ -19,7 +19,6 @@ export class Crawler {
   constructor() {
     this.parser = this.getParser();
     this.article = this.parser.result;
-    console.log('this.article', this.article);
     this.articleEl = this.parser.articleElement;
     this.userId = User.getId();
     this.sender = new Sender();
@@ -27,7 +26,7 @@ export class Crawler {
     this.articleStartEl = addElement(this.articleEl, 'js-observer-start', true);
     this.articleEndEl = addElement(this.articleEl, 'js-observer-end');
     this.startReadTime = new Date().getTime();
-    // if (this.articleEl) this.initEvents();
+    if (this.articleEl) this.initEvents();
   }
 
   get statistic(): ArticleStatistic {
