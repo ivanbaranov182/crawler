@@ -99,15 +99,11 @@ export class PropParser extends Parser {
     return images;
   }
 
-  get author_id(): number | null {
-    const authorIdEl = this.articleAuthorEl ? this.getElement('[itemprop="vatID"]', this.articleAuthorEl) : null;
-    if (!authorIdEl) return null;
-    return null;
+  get author_id(): string {
+    return this.getElementParam('[itemprop="vatID"]', 'content');
   }
 
   get author_name(): string {
-    const authorNameEl = this.articleAuthorEl ? this.getElement('[itemprop="name"]', this.articleAuthorEl) : null;
-    if (!authorNameEl) return '';
-    return this.getElementTextValue(authorNameEl);
+    return this.getElementParam('[itemprop="name"]', null);
   }
 }

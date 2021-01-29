@@ -7,7 +7,7 @@ export type Article = {
   description: string;
   text_html: string;
   content_images: ContentImage[];
-  author_id: number | null;
+  author_id: string;
   author_name: string;
   published_at: string;
   edited_at: string;

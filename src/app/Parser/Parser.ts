@@ -61,8 +61,8 @@ export class Parser {
     return [];
   }
 
-  get author_id(): number | null {
-    return null;
+  get author_id(): string {
+    return '';
   }
 
   get author_name(): string {
