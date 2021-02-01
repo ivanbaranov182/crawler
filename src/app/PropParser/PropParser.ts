@@ -80,7 +80,7 @@ export class PropParser extends Parser {
   }
 
   get image(): string {
-    return this.getElementParam('[itemprop="image"] img', 'src');
+    return this.getElementParam('img[itemprop="image"]', 'src');
   }
 
   get description(): string {
